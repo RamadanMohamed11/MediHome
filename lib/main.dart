@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:medihome/core/utils/app_router.dart';
+import 'package:medihome/core/utils/service_locator.dart';
 import 'package:medihome/features/authentication/presentation/views/login_view.dart';
 
 void main() {
+  setupServiceLocator();
   runApp(const MediHome());
 }
 
@@ -10,8 +13,8 @@ class MediHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: LoginView(),
+    return MaterialApp.router(
+      routerConfig: AppRouter.routes,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,

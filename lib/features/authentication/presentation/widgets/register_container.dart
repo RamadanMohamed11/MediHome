@@ -3,19 +3,20 @@ import 'package:go_router/go_router.dart';
 import 'package:medihome/core/utils/app_router.dart';
 import 'package:medihome/features/authentication/presentation/widgets/custom_button.dart';
 import 'package:medihome/features/authentication/presentation/widgets/email_text_form_field.dart';
+import 'package:medihome/features/authentication/presentation/widgets/name_text_field.dart';
 import 'package:medihome/features/authentication/presentation/widgets/password_text_form_field.dart';
 
-class LoginContainer extends StatefulWidget {
-  const LoginContainer({super.key});
+class RegisterContainer extends StatefulWidget {
+  const RegisterContainer({super.key});
 
   @override
-  State<LoginContainer> createState() => _LoginContainerState();
+  State<RegisterContainer> createState() => _RegisterContainerState();
 }
 
-class _LoginContainerState extends State<LoginContainer> {
+class _RegisterContainerState extends State<RegisterContainer> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  void loginOnPressed() {
+  void registerOnPressed() {
     if (formKey.currentState!.validate()) {
       GoRouter.of(context).push(AppRouter.kHome);
     }
@@ -36,7 +37,7 @@ class _LoginContainerState extends State<LoginContainer> {
         child: Column(
           children: [
             Text(
-              "Login",
+              "Register",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 40,
@@ -44,38 +45,25 @@ class _LoginContainerState extends State<LoginContainer> {
               ),
             ),
             Text(
-              "Enter your email and password to log in",
+              "Enter your name, email and password to register",
+              textAlign: TextAlign.center,
+
               style: TextStyle(color: Colors.grey, fontSize: 16),
             ),
             SizedBox(height: 24),
+            NameTextField(),
+            SizedBox(height: 12),
             EmailTextFormField(),
             SizedBox(height: 12),
             PasswordTextFormField(),
             SizedBox(height: 24),
-            Row(
-              children: [
-                Checkbox(value: false, onChanged: (value) {}),
-                Text(
-                  "Remember me",
-                  style: TextStyle(color: Colors.white70, fontSize: 16),
-                ),
-                Spacer(),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Forgot Password?",
-                    style: TextStyle(color: Colors.blue),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 24),
+
             Row(
               children: [
                 Expanded(
                   child: CustomButton(
-                    buttonText: "Login",
-                    onPressed: loginOnPressed,
+                    buttonText: "Register",
+                    onPressed: registerOnPressed,
                   ),
                 ),
               ],
@@ -117,16 +105,16 @@ class _LoginContainerState extends State<LoginContainer> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Don’t have an account?",
+                    "Already have an account?",
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                   TextButton(
                     onPressed: () {
                       // push to the register screen using go_router
-                      GoRouter.of(context).push(AppRouter.kRegister);
+                      GoRouter.of(context).pop();
                     },
                     child: Text(
-                      "Sign Up",
+                      "Login",
                       style: TextStyle(color: Colors.blue, fontSize: 20),
                     ),
                   ),
