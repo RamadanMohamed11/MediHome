@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medihome/core/utils/app_router.dart';
 import 'package:medihome/features/authentication/presentation/widgets/custom_button.dart';
@@ -123,6 +124,7 @@ class _LoginContainerState extends State<LoginContainer> {
                   TextButton(
                     onPressed: () {
                       // push to the register screen using go_router
+
                       GoRouter.of(context).push(AppRouter.kRegister);
                     },
                     child: Text(

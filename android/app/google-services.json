@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "320834603461",
+    "project_id": "medihome-6f2fb",
+    "storage_bucket": "medihome-6f2fb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320834603461:android:03e6e6ae67d0bb009663ac",
+        "android_client_info": {
+          "package_name": "com.example.medihome"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYI60cfg0et4aNf7oUM0R9RoKyln7JAtE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
