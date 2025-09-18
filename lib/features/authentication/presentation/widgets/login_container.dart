@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medihome/core/utils/app_router.dart';
 import 'package:medihome/features/authentication/presentation/widgets/custom_button.dart';
 import 'package:medihome/features/authentication/presentation/widgets/email_text_form_field.dart';
 import 'package:medihome/features/authentication/presentation/widgets/password_text_form_field.dart';
+import 'package:medihome/features/authentication/presentation/widgets/tall_bar.dart';
+import 'package:shimmer/shimmer.dart';
 
 class LoginContainer extends StatefulWidget {
   const LoginContainer({super.key});
@@ -15,6 +16,30 @@ class LoginContainer extends StatefulWidget {
 
 class _LoginContainerState extends State<LoginContainer> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  late TextEditingController emailController;
+  late TextEditingController passwordController;
+
+  @override
+  void initState() {
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  void emailOnSaved(String? value) {
+    emailController.text = value ?? '';
+  }
+
+  void passwordOnSaved(String? value) {
+    passwordController.text = value ?? '';
+  }
 
   void loginOnPressed() {
     if (formKey.currentState!.validate()) {
@@ -36,12 +61,17 @@ class _LoginContainerState extends State<LoginContainer> {
         ),
         child: Column(
           children: [
-            Text(
-              "Login",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
+            Shimmer.fromColors(
+              baseColor: Colors.white,
+              highlightColor: Colors.blue,
+              period: Duration(seconds: 5),
+              child: Text(
+                "Login",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Text(
@@ -49,9 +79,15 @@ class _LoginContainerState extends State<LoginContainer> {
               style: TextStyle(color: Colors.grey, fontSize: 16),
             ),
             SizedBox(height: 24),
-            EmailTextFormField(),
+            EmailTextFormField(
+              emailController: emailController,
+              onSavedMehod: emailOnSaved,
+            ),
             SizedBox(height: 12),
-            PasswordTextFormField(),
+            PasswordTextFormField(
+              passwordController: passwordController,
+              onSavedMethod: passwordOnSaved,
+            ),
             SizedBox(height: 24),
             Row(
               children: [
@@ -84,27 +120,9 @@ class _LoginContainerState extends State<LoginContainer> {
             SizedBox(height: 24),
             Row(
               children: [
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(right: 12),
-                    height: 2,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                ),
+                Expanded(child: TallBar(isRight: true)),
                 Text("OR", style: TextStyle(color: Colors.white, fontSize: 20)),
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(left: 12),
-                    height: 2,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                ),
+                Expanded(child: TallBar(isRight: false)),
               ],
             ),
             SizedBox(height: 24),

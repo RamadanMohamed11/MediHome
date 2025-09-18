@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:medihome/core/helper/text_form_filed_validations.dart';
 
 class PasswordTextFormField extends StatefulWidget {
-  const PasswordTextFormField({super.key});
+  const PasswordTextFormField({
+    super.key,
+    required this.passwordController,
+    required this.onSavedMethod,
+  });
+
+  final TextEditingController passwordController;
+  final Function(String?)? onSavedMethod;
 
   @override
   State<PasswordTextFormField> createState() => _PasswordTextFormFieldState();
@@ -13,6 +20,8 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onSaved: widget.onSavedMethod,
+      controller: widget.passwordController,
       style: TextStyle(color: Colors.white),
       obscureText: !isPasswordVisible,
       validator: TextFormFiledValidations.passwordValidation,

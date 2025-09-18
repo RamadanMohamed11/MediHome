@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medihome/core/utils/app_router.dart';
+import 'package:medihome/features/authentication/presentation/view_models/cubit/authentication_cubit.dart';
 import 'package:medihome/features/authentication/presentation/widgets/custom_button.dart';
 import 'package:medihome/features/authentication/presentation/widgets/email_text_form_field.dart';
 import 'package:medihome/features/authentication/presentation/widgets/name_text_field.dart';
 import 'package:medihome/features/authentication/presentation/widgets/password_text_form_field.dart';
+import 'package:shimmer/shimmer.dart';
 
 class RegisterContainer extends StatefulWidget {
   const RegisterContainer({super.key});
@@ -16,15 +18,33 @@ class RegisterContainer extends StatefulWidget {
 
 class _RegisterContainerState extends State<RegisterContainer> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  late TextEditingController emailController;
+  late TextEditingController passwordController;
+  late TextEditingController nameController;
 
-  void registerOnPressed() {
-    if (formKey.currentState!.validate()) {
-      GoRouter.of(context).push(AppRouter.kHome);
-    }
+  @override
+  void initState() {
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+    nameController = TextEditingController();
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    void registerOnPressed() {
+      if (formKey.currentState!.validate()) {
+        formKey.currentState!.save();
+
+        BlocProvider.of<AuthenticationCubit>(context).signUp(
+          email: emailController.text,
+          password: passwordController.text,
+          name: nameController.text,
+          context: context,
+        );
+      }
+    }
+
     return Form(
       key: formKey,
       child: Container(
@@ -37,12 +57,17 @@ class _RegisterContainerState extends State<RegisterContainer> {
         ),
         child: Column(
           children: [
-            Text(
-              "Register",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
+            Shimmer.fromColors(
+              baseColor: Colors.white,
+              highlightColor: Colors.blue,
+              period: Duration(seconds: 5),
+              child: Text(
+                "Register",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Text(
@@ -52,11 +77,20 @@ class _RegisterContainerState extends State<RegisterContainer> {
               style: TextStyle(color: Colors.grey, fontSize: 16),
             ),
             SizedBox(height: 24),
-            NameTextField(),
+            NameTextField(
+              nameController: nameController,
+              onSavedMehod: nameOnSaved,
+            ),
             SizedBox(height: 12),
-            EmailTextFormField(),
+            EmailTextFormField(
+              emailController: emailController,
+              onSavedMehod: emailOnSaved,
+            ),
             SizedBox(height: 12),
-            PasswordTextFormField(),
+            PasswordTextFormField(
+              passwordController: passwordController,
+              onSavedMethod: passwordOnSaved,
+            ),
             SizedBox(height: 24),
 
             Row(
@@ -127,5 +161,25 @@ class _RegisterContainerState extends State<RegisterContainer> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    nameController.dispose();
+    super.dispose();
+  }
+
+  void nameOnSaved(String? value) {
+    nameController.text = value ?? '';
+  }
+
+  void emailOnSaved(String? value) {
+    emailController.text = value ?? '';
+  }
+
+  void passwordOnSaved(String? value) {
+    passwordController.text = value ?? '';
   }
 }
