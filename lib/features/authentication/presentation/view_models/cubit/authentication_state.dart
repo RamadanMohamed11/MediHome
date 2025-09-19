@@ -13,6 +13,8 @@ final class AuthenticationSignUpSuccess extends AuthenticationState {}
 
 final class AuthenticationSignOutSuccess extends AuthenticationState {}
 
+final class AuthenticationForgetPasswordSuccess extends AuthenticationState {}
+
 final class AuthenticationFailure extends AuthenticationState {
   final String errorMessage;
   AuthenticationFailure(this.errorMessage);

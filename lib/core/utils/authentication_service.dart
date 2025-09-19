@@ -48,4 +48,12 @@ class AuthenticationService {
       print("Error signing out: $e");
     }
   }
+
+  Future<void> forgetPassword({required String email}) async {
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(email: email);
+    } catch (e) {
+      print("Error sending password reset email: $e");
+    }
+  }
 }

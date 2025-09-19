@@ -3,12 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medihome/features/authentication/presentation/view_models/cubit/authentication_cubit.dart';
 import 'package:medihome/features/authentication/presentation/widgets/custom_button.dart';
+import 'package:medihome/features/authentication/presentation/widgets/custom_text_widget.dart';
 import 'package:medihome/features/authentication/presentation/widgets/email_text_form_field.dart';
 import 'package:medihome/features/authentication/presentation/widgets/name_text_field.dart';
 import 'package:medihome/features/authentication/presentation/widgets/password_text_form_field.dart';
 import 'package:medihome/features/authentication/presentation/widgets/tall_bar.dart';
 import 'package:medihome/generated/l10n.dart';
-import 'package:shimmer/shimmer.dart';
 
 class RegisterContainer extends StatefulWidget {
   const RegisterContainer({super.key});
@@ -58,19 +58,7 @@ class _RegisterContainerState extends State<RegisterContainer> {
         ),
         child: Column(
           children: [
-            Shimmer.fromColors(
-              baseColor: Colors.white,
-              highlightColor: Colors.blue,
-              period: Duration(seconds: 5),
-              child: Text(
-                S.of(context).register,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
+            CustomTextWidget(text: S.of(context).register),
             Text(
               S.of(context).enterYourNameEmailAndPasswordToRegister,
               textAlign: TextAlign.center,

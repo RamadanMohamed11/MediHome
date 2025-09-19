@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medihome/core/utils/app_router.dart';
 import 'package:medihome/features/authentication/presentation/widgets/custom_button.dart';
+import 'package:medihome/features/authentication/presentation/widgets/custom_text_widget.dart';
 import 'package:medihome/features/authentication/presentation/widgets/email_text_form_field.dart';
 import 'package:medihome/features/authentication/presentation/widgets/password_text_form_field.dart';
 import 'package:medihome/features/authentication/presentation/widgets/tall_bar.dart';
 import 'package:medihome/generated/l10n.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:medihome/features/authentication/presentation/widgets/language_selection_widget.dart';
 
 class LoginContainer extends StatefulWidget {
@@ -63,19 +63,7 @@ class _LoginContainerState extends State<LoginContainer> {
         ),
         child: Column(
           children: [
-            Shimmer.fromColors(
-              baseColor: Colors.white,
-              highlightColor: Colors.blue,
-              period: Duration(seconds: 5),
-              child: Text(
-                S.of(context).login,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
+            CustomTextWidget(text: S.of(context).login),
             Text(
               S.of(context).enterYourEmailAndPasswordToLogIn,
               style: TextStyle(color: Colors.grey, fontSize: 16),
@@ -100,7 +88,9 @@ class _LoginContainerState extends State<LoginContainer> {
                 ),
                 Spacer(),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    GoRouter.of(context).push(AppRouter.kForgetPassword);
+                  },
                   child: Text(
                     S.of(context).forgotPassword,
                     style: TextStyle(color: Colors.blue),

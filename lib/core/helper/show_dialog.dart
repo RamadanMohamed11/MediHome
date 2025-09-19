@@ -1,5 +1,6 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:medihome/generated/l10n.dart';
 
 void showMessageDialog(
   BuildContext context,
@@ -18,10 +19,10 @@ void showMessageDialog(
         ? DialogType.question
         : DialogType.error,
     title: isSuccessful
-        ? "Success"
+        ? S.of(context).success
         : (isSignout)
-        ? "Signout"
-        : "Error",
+        ? S.of(context).signout
+        : S.of(context).error,
     titleTextStyle: TextStyle(
       color: isSuccessful ? Colors.greenAccent : Colors.redAccent,
       fontSize: 22,
@@ -33,7 +34,7 @@ void showMessageDialog(
       color: Colors.white,
       fontWeight: FontWeight.bold,
     ),
-    btnOkText: "Ok",
+    btnOkText: S.of(context).ok,
     buttonsTextStyle: TextStyle(
       color: Colors.white,
       fontSize: 20,

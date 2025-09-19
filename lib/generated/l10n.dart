@@ -109,9 +109,49 @@ class S {
     );
   }
 
+  /// `Reset Password`
+  String get resetPassword {
+    return Intl.message(
+      'Reset Password',
+      name: 'resetPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Name`
   String get name {
     return Intl.message('Name', name: 'name', desc: '', args: []);
+  }
+
+  /// `Sign Out`
+  String get signout {
+    return Intl.message('Sign Out', name: 'signout', desc: '', args: []);
+  }
+
+  /// `Error`
+  String get error {
+    return Intl.message('Error', name: 'error', desc: '', args: []);
+  }
+
+  /// `OK`
+  String get ok {
+    return Intl.message('OK', name: 'ok', desc: '', args: []);
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
+  }
+
+  /// `Success`
+  String get success {
+    return Intl.message('Success', name: 'success', desc: '', args: []);
+  }
+
+  /// `Send`
+  String get send {
+    return Intl.message('Send', name: 'send', desc: '', args: []);
   }
 
   /// `Register Now`
@@ -119,6 +159,26 @@ class S {
     return Intl.message(
       'Register Now',
       name: 'registerNow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email sent successfully, may be in spam`
+  String get emailSentSuccessfullyMayBeInSpam {
+    return Intl.message(
+      'Email sent successfully, may be in spam',
+      name: 'emailSentSuccessfullyMayBeInSpam',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email created successfully`
+  String get emailCreatedSuccessfully {
+    return Intl.message(
+      'Email created successfully',
+      name: 'emailCreatedSuccessfully',
       desc: '',
       args: [],
     );
@@ -209,16 +269,6 @@ class S {
     return Intl.message('Logout', name: 'logout', desc: '', args: []);
   }
 
-  /// `Products`
-  String get products {
-    return Intl.message('Products', name: 'products', desc: '', args: []);
-  }
-
-  /// `Cart`
-  String get cart {
-    return Intl.message('Cart', name: 'cart', desc: '', args: []);
-  }
-
   /// `Profile`
   String get profile {
     return Intl.message('Profile', name: 'profile', desc: '', args: []);
@@ -259,36 +309,6 @@ class S {
     return Intl.message('Contact', name: 'contact', desc: '', args: []);
   }
 
-  /// `Product Details`
-  String get productDetails {
-    return Intl.message(
-      'Product Details',
-      name: 'productDetails',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Quantity`
-  String get quantity {
-    return Intl.message('Quantity', name: 'quantity', desc: '', args: []);
-  }
-
-  /// `Add to Cart`
-  String get addToCart {
-    return Intl.message('Add to Cart', name: 'addToCart', desc: '', args: []);
-  }
-
-  /// `Cart is Empty`
-  String get cartIsEmpty {
-    return Intl.message(
-      'Cart is Empty',
-      name: 'cartIsEmpty',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Total`
   String get total {
     return Intl.message('Total', name: 'total', desc: '', args: []);
@@ -304,6 +324,16 @@ class S {
     return Intl.message(
       'Checkout Success',
       name: 'checkoutSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email to reset your password`
+  String get enterYourEmailToResetYourPassword {
+    return Intl.message(
+      'Enter your email to reset your password',
+      name: 'enterYourEmailToResetYourPassword',
       desc: '',
       args: [],
     );

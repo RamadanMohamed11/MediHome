@@ -6,6 +6,7 @@ import 'package:medihome/features/authentication/presentation/view_models/cubit/
 import 'package:medihome/features/authentication/presentation/widgets/login_container.dart';
 import 'package:medihome/features/authentication/presentation/widgets/medi_home_with_icon_widget.dart';
 import 'package:medihome/features/authentication/presentation/widgets/top_image.dart';
+import 'package:medihome/generated/l10n.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
@@ -14,12 +15,15 @@ class LoginViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<AuthenticationCubit, AuthenticationState>(
       listener: (context, state) {
-        if (state is AuthenticationSignUpSuccess) {
+        if (state is AuthenticationSignUpSuccess ||
+            state is AuthenticationForgetPasswordSuccess) {
           showMessageDialog(
             context,
             true,
             false,
-            "Email created successfully",
+            state is AuthenticationSignUpSuccess
+                ? S.of(context).emailCreatedSuccessfully
+                : S.of(context).emailSentSuccessfullyMayBeInSpam,
             btnOkOnPress: () {},
           );
           BlocProvider.of<AuthenticationCubit>(context).emitInitial();
@@ -56,27 +60,27 @@ class LoginBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      return SingleChildScrollView(
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-            minHeight: constraints.maxHeight,
-          ),
-          child: IntrinsicHeight(
-            child: Column(
-              children: [
-                TopImage(),
-                SizedBox(height: 24),
-                MediHomeWithIconWidget(),
-                Expanded(
-                  flex: 3,
-                  child: Opacity(opacity: 0.9, child: LoginContainer()),
-                ),
-              ],
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: constraints.maxHeight),
+            child: IntrinsicHeight(
+              child: Column(
+                children: [
+                  TopImage(),
+                  SizedBox(height: 24),
+                  MediHomeWithIconWidget(),
+                  Expanded(
+                    flex: 3,
+                    child: Opacity(opacity: 0.9, child: LoginContainer()),
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 }

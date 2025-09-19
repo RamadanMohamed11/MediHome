@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medihome/core/helper/get_current_locale.dart';
 import 'package:shimmer/shimmer.dart';
 
 class TallBar extends StatelessWidget {

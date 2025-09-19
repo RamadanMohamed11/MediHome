@@ -23,22 +23,29 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("من نحن"),
-    "addToCart": MessageLookupByLibrary.simpleMessage("إضافة إلى السلة"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "لديك حساب بالفعل؟",
     ),
-    "cart": MessageLookupByLibrary.simpleMessage("السلة"),
-    "cartIsEmpty": MessageLookupByLibrary.simpleMessage("السلة فارغة"),
+    "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
     "checkout": MessageLookupByLibrary.simpleMessage("الدفع"),
     "checkoutSuccess": MessageLookupByLibrary.simpleMessage("تم التسجيل بنجاح"),
     "contact": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
     "dontHaveAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+    "emailCreatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم إنشاء البريد الإلكتروني بنجاح",
+    ),
+    "emailSentSuccessfullyMayBeInSpam": MessageLookupByLibrary.simpleMessage(
+      "تم إرسال البريد الإلكتروني بنجاح، يمكن أن يكون في السبام",
+    ),
     "enterYourEmail": MessageLookupByLibrary.simpleMessage(
       "أدخل البريد الإلكتروني",
     ),
     "enterYourEmailAndPasswordToLogIn": MessageLookupByLibrary.simpleMessage(
       "أدخل البريد الإلكتروني وكلمة المرور لتسجيل الدخول",
+    ),
+    "enterYourEmailToResetYourPassword": MessageLookupByLibrary.simpleMessage(
+      "أدخل البريد الإلكتروني لاستعادة كلمة المرور",
     ),
     "enterYourName": MessageLookupByLibrary.simpleMessage("أدخل الاسم"),
     "enterYourNameEmailAndPasswordToRegister":
@@ -48,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterYourPassword": MessageLookupByLibrary.simpleMessage(
       "أدخل كلمة المرور",
     ),
+    "error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
     "home": MessageLookupByLibrary.simpleMessage("الصفحة الرئيسية"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
@@ -57,18 +65,22 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "name": MessageLookupByLibrary.simpleMessage("الاسم"),
+    "ok": MessageLookupByLibrary.simpleMessage("موافق"),
     "or": MessageLookupByLibrary.simpleMessage("أو"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
-    "productDetails": MessageLookupByLibrary.simpleMessage("تفاصيل المنتج"),
-    "products": MessageLookupByLibrary.simpleMessage("المنتجات"),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
-    "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
     "register": MessageLookupByLibrary.simpleMessage("تسجيل حساب جديد"),
     "registerNow": MessageLookupByLibrary.simpleMessage("تسجيل حساب جديد"),
     "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
+    "resetPassword": MessageLookupByLibrary.simpleMessage(
+      "إعادة تعيين كلمة المرور",
+    ),
+    "send": MessageLookupByLibrary.simpleMessage("إرسال"),
     "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "signout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+    "success": MessageLookupByLibrary.simpleMessage("نجاح"),
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "الشروط والأحكام",
     ),

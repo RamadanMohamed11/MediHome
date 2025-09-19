@@ -23,12 +23,10 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("About"),
-    "addToCart": MessageLookupByLibrary.simpleMessage("Add to Cart"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
-    "cart": MessageLookupByLibrary.simpleMessage("Cart"),
-    "cartIsEmpty": MessageLookupByLibrary.simpleMessage("Cart is Empty"),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
     "checkoutSuccess": MessageLookupByLibrary.simpleMessage("Checkout Success"),
     "contact": MessageLookupByLibrary.simpleMessage("Contact"),
@@ -36,9 +34,18 @@ class MessageLookup extends MessageLookupByLibrary {
       "Don\'t have an account?",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "emailCreatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Email created successfully",
+    ),
+    "emailSentSuccessfullyMayBeInSpam": MessageLookupByLibrary.simpleMessage(
+      "Email sent successfully, may be in spam",
+    ),
     "enterYourEmail": MessageLookupByLibrary.simpleMessage("Enter your email"),
     "enterYourEmailAndPasswordToLogIn": MessageLookupByLibrary.simpleMessage(
       "Enter your email and password to log in",
+    ),
+    "enterYourEmailToResetYourPassword": MessageLookupByLibrary.simpleMessage(
+      "Enter your email to reset your password",
     ),
     "enterYourName": MessageLookupByLibrary.simpleMessage("Enter your name"),
     "enterYourNameEmailAndPasswordToRegister":
@@ -48,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterYourPassword": MessageLookupByLibrary.simpleMessage(
       "Enter your password",
     ),
+    "error": MessageLookupByLibrary.simpleMessage("Error"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
@@ -55,18 +63,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "loginWithGmail": MessageLookupByLibrary.simpleMessage("Login with Gmail"),
     "logout": MessageLookupByLibrary.simpleMessage("Logout"),
     "name": MessageLookupByLibrary.simpleMessage("Name"),
+    "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "or": MessageLookupByLibrary.simpleMessage("Or"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
-    "productDetails": MessageLookupByLibrary.simpleMessage("Product Details"),
-    "products": MessageLookupByLibrary.simpleMessage("Products"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
-    "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "registerNow": MessageLookupByLibrary.simpleMessage("Register Now"),
     "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
+    "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
+    "send": MessageLookupByLibrary.simpleMessage("Send"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+    "signout": MessageLookupByLibrary.simpleMessage("Sign Out"),
+    "success": MessageLookupByLibrary.simpleMessage("Success"),
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "Terms and Conditions",
     ),

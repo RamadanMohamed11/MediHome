@@ -36,4 +36,14 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     authenticationService.signOut();
     emit(AuthenticationSignOutSuccess());
   }
+
+  Future<void> forgetPassword({
+    required String email,
+    required BuildContext context,
+  }) async {
+    emit(AuthenticationLoading());
+    authenticationService.forgetPassword(email: email);
+    emit(AuthenticationForgetPasswordSuccess());
+    GoRouter.of(context).pop();
+  }
 }
