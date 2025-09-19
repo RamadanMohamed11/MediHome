@@ -5,15 +5,15 @@ class EmailTextFormField extends StatelessWidget {
   const EmailTextFormField({
     super.key,
     required this.emailController,
-    required this.onSavedMehod,
+    required this.onSavedMethod,
   });
   final TextEditingController emailController;
-  final Function(String?)? onSavedMehod;
+  final Function(String?)? onSavedMethod;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onSaved: onSavedMehod,
+      onSaved: onSavedMethod,
       controller: emailController,
       validator: TextFormFiledValidations.emailValidation,
       keyboardType: TextInputType.emailAddress,

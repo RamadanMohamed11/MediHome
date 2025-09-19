@@ -7,6 +7,7 @@ import 'package:medihome/features/authentication/presentation/widgets/custom_but
 import 'package:medihome/features/authentication/presentation/widgets/email_text_form_field.dart';
 import 'package:medihome/features/authentication/presentation/widgets/name_text_field.dart';
 import 'package:medihome/features/authentication/presentation/widgets/password_text_form_field.dart';
+import 'package:medihome/features/authentication/presentation/widgets/tall_bar.dart';
 import 'package:shimmer/shimmer.dart';
 
 class RegisterContainer extends StatefulWidget {
@@ -79,12 +80,12 @@ class _RegisterContainerState extends State<RegisterContainer> {
             SizedBox(height: 24),
             NameTextField(
               nameController: nameController,
-              onSavedMehod: nameOnSaved,
+              onSavedMethod: nameOnSaved,
             ),
             SizedBox(height: 12),
             EmailTextFormField(
               emailController: emailController,
-              onSavedMehod: emailOnSaved,
+              onSavedMethod: emailOnSaved,
             ),
             SizedBox(height: 12),
             PasswordTextFormField(
@@ -99,6 +100,7 @@ class _RegisterContainerState extends State<RegisterContainer> {
                   child: CustomButton(
                     buttonText: "Register",
                     onPressed: registerOnPressed,
+                    color: Colors.blue,
                   ),
                 ),
               ],
@@ -106,32 +108,25 @@ class _RegisterContainerState extends State<RegisterContainer> {
             SizedBox(height: 24),
             Row(
               children: [
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(right: 12),
-                    height: 2,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                ),
+                Expanded(child: TallBar(isRight: true)),
                 Text("OR", style: TextStyle(color: Colors.white, fontSize: 20)),
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(left: 12),
-                    height: 2,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                ),
+                Expanded(child: TallBar(isRight: false)),
               ],
             ),
             SizedBox(height: 24),
 
             /* Gmail Login */
+            Row(
+              children: [
+                Expanded(
+                  child: CustomButton(
+                    buttonText: "Register with Gmail",
+                    onPressed: () {},
+                    color: Colors.red,
+                  ),
+                ),
+              ],
+            ),
             SizedBox(height: 24),
 
             FittedBox(

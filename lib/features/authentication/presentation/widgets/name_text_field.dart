@@ -5,15 +5,15 @@ class NameTextField extends StatelessWidget {
   const NameTextField({
     super.key,
     required this.nameController,
-    required this.onSavedMehod,
+    required this.onSavedMethod,
   });
   final TextEditingController nameController;
-  final Function(String?)? onSavedMehod;
+  final Function(String?)? onSavedMethod;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onSaved: onSavedMehod,
+      onSaved: onSavedMethod,
       controller: nameController,
       validator: TextFormFiledValidations.nameValidation,
       style: TextStyle(color: Colors.white),

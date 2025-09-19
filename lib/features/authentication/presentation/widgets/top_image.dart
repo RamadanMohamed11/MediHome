@@ -10,6 +10,10 @@ class TopImage extends StatelessWidget {
       height: 200,
       alignment: Alignment.topCenter,
       decoration: BoxDecoration(
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(12),
+          bottomRight: Radius.circular(12),
+        ),
         image: DecorationImage(
           image: AssetImage(AssetsData.loginBackground),
           fit: BoxFit.fitWidth,

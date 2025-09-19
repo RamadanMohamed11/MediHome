@@ -5,10 +5,12 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.buttonText,
     required this.onPressed,
+    required this.color,
   });
 
   final String buttonText;
   final void Function()? onPressed;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class CustomButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         fixedSize: Size(double.infinity, 50),
-        backgroundColor: Colors.blue,
+        backgroundColor: color,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
       child: Text(

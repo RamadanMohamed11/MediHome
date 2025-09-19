@@ -81,7 +81,7 @@ class _LoginContainerState extends State<LoginContainer> {
             SizedBox(height: 24),
             EmailTextFormField(
               emailController: emailController,
-              onSavedMehod: emailOnSaved,
+              onSavedMethod: emailOnSaved,
             ),
             SizedBox(height: 12),
             PasswordTextFormField(
@@ -113,6 +113,7 @@ class _LoginContainerState extends State<LoginContainer> {
                   child: CustomButton(
                     buttonText: "Login",
                     onPressed: loginOnPressed,
+                    color: Colors.blue,
                   ),
                 ),
               ],
@@ -128,6 +129,17 @@ class _LoginContainerState extends State<LoginContainer> {
             SizedBox(height: 24),
 
             /* Gmail Login */
+            Row(
+              children: [
+                Expanded(
+                  child: CustomButton(
+                    buttonText: "Login with Gmail",
+                    onPressed: () {},
+                    color: Colors.red,
+                  ),
+                ),
+              ],
+            ),
             SizedBox(height: 24),
 
             FittedBox(

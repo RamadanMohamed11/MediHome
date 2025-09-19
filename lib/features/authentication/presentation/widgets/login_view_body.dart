@@ -24,6 +24,16 @@ class LoginViewBody extends StatelessWidget {
           );
           BlocProvider.of<AuthenticationCubit>(context).emitInitial();
         }
+        if (state is AuthenticationFailure) {
+          showMessageDialog(
+            context,
+            false,
+            false,
+            state.errorMessage,
+            btnOkOnPress: () {},
+          );
+          BlocProvider.of<AuthenticationCubit>(context).emitInitial();
+        }
       },
       child: BlocBuilder<AuthenticationCubit, AuthenticationState>(
         builder: (context, state) {
