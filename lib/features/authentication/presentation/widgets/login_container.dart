@@ -7,6 +7,7 @@ import 'package:medihome/features/authentication/presentation/widgets/password_t
 import 'package:medihome/features/authentication/presentation/widgets/tall_bar.dart';
 import 'package:medihome/generated/l10n.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:medihome/features/authentication/presentation/widgets/language_selection_widget.dart';
 
 class LoginContainer extends StatefulWidget {
   const LoginContainer({super.key});
@@ -123,9 +124,12 @@ class _LoginContainerState extends State<LoginContainer> {
             Row(
               children: [
                 Expanded(child: TallBar(isRight: true)),
-                Text(
-                  S.of(context).or,
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: Text(
+                    S.of(context).or,
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
                 ),
                 Expanded(child: TallBar(isRight: false)),
               ],
@@ -169,6 +173,8 @@ class _LoginContainerState extends State<LoginContainer> {
                 ],
               ),
             ),
+            const SizedBox(height: 24),
+            const LanguageSelectionWidget(),
           ],
         ),
       ),

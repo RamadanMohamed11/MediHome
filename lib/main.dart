@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:medihome/core/cubits/localization/localization_cubit.dart';
 import 'package:medihome/core/utils/app_router.dart';
 import 'package:medihome/core/utils/authentication_service.dart';
 import 'package:medihome/core/utils/service_locator.dart';
@@ -30,22 +31,29 @@ class MediHome extends StatelessWidget {
             authenticationService: AuthenticationService(),
           ),
         ),
-      ],
-      child: MaterialApp.router(
-        locale: const Locale('ar'),
-        localizationsDelegates: [
-          S.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: S.delegate.supportedLocales,
-        routerConfig: AppRouter.routes,
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          useMaterial3: true,
-          scaffoldBackgroundColor: Color(0xff080E1C),
+        BlocProvider<LocalizationCubit>(
+          create: (context) => LocalizationCubit(),
         ),
+      ],
+      child: BlocBuilder<LocalizationCubit, LocalizationState>(
+        builder: (context, state) {
+          return MaterialApp.router(
+            locale: state.locale,
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            routerConfig: AppRouter.routes,
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              useMaterial3: true,
+              scaffoldBackgroundColor: const Color(0xff080E1C),
+            ),
+          );
+        },
       ),
     );
   }

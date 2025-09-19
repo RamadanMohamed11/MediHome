@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:medihome/core/utils/app_router.dart';
 import 'package:medihome/features/authentication/presentation/view_models/cubit/authentication_cubit.dart';
 import 'package:medihome/features/authentication/presentation/widgets/custom_button.dart';
 import 'package:medihome/features/authentication/presentation/widgets/email_text_form_field.dart';
@@ -110,9 +109,12 @@ class _RegisterContainerState extends State<RegisterContainer> {
             Row(
               children: [
                 Expanded(child: TallBar(isRight: true)),
-                Text(
-                  S.of(context).or,
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: Text(
+                    S.of(context).or,
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
                 ),
                 Expanded(child: TallBar(isRight: false)),
               ],

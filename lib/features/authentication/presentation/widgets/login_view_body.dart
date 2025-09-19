@@ -56,24 +56,27 @@ class LoginBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverFillRemaining(
-          hasScrollBody: false,
-          fillOverscroll: true,
-          child: Column(
-            children: [
-              TopImage(),
-              SizedBox(height: 24),
-              MediHomeWithIconWidget(),
-              Expanded(
-                flex: 3,
-                child: Opacity(opacity: 0.9, child: LoginContainer()),
-              ),
-            ],
+    return LayoutBuilder(builder: (context, constraints) {
+      return SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: constraints.maxHeight,
+          ),
+          child: IntrinsicHeight(
+            child: Column(
+              children: [
+                TopImage(),
+                SizedBox(height: 24),
+                MediHomeWithIconWidget(),
+                Expanded(
+                  flex: 3,
+                  child: Opacity(opacity: 0.9, child: LoginContainer()),
+                ),
+              ],
+            ),
           ),
         ),
-      ],
-    );
+      );
+    });
   }
 }

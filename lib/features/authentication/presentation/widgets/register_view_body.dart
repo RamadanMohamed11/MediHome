@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:medihome/core/utils/assets_data.dart';
 import 'package:medihome/core/widgets/loading_widget.dart';
 import 'package:medihome/features/authentication/presentation/view_models/cubit/authentication_cubit.dart';
 import 'package:medihome/features/authentication/presentation/widgets/medi_home_with_icon_widget.dart';

@@ -2,8 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medihome/core/utils/authentication_service.dart';
-import 'package:medihome/features/authentication/data/models/user_model.dart';
-import 'package:meta/meta.dart';
 
 part 'authentication_state.dart';
 
