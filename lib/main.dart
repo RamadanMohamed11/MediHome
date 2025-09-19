@@ -5,7 +5,9 @@ import 'package:medihome/core/utils/authentication_service.dart';
 import 'package:medihome/core/utils/service_locator.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:medihome/features/authentication/presentation/view_models/cubit/authentication_cubit.dart';
+import 'package:medihome/generated/l10n.dart';
 import 'firebase_options.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,6 +32,14 @@ class MediHome extends StatelessWidget {
         ),
       ],
       child: MaterialApp.router(
+        locale: const Locale('ar'),
+        localizationsDelegates: [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
         routerConfig: AppRouter.routes,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

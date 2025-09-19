@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medihome/core/helper/text_form_filed_validations.dart';
+import 'package:medihome/generated/l10n.dart';
 
 class PasswordTextFormField extends StatefulWidget {
   const PasswordTextFormField({
@@ -26,7 +27,7 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
       obscureText: !isPasswordVisible,
       validator: TextFormFiledValidations.passwordValidation,
       decoration: InputDecoration(
-        hintText: "Enter your password",
+        hintText: S.of(context).enterYourPassword,
         hintStyle: TextStyle(color: Colors.white60),
         prefixIcon: Icon(Icons.lock_outline, color: Colors.white70),
         suffixIcon: IconButton(

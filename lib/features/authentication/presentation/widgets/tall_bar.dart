@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medihome/core/helper/get_current_locale.dart';
 import 'package:shimmer/shimmer.dart';
 
 class TallBar extends StatelessWidget {
@@ -13,8 +14,12 @@ class TallBar extends StatelessWidget {
       period: Duration(seconds: 5),
       child: Container(
         margin: EdgeInsets.only(
-          left: isRight ? 0 : 12,
-          right: isRight ? 12 : 0,
+          left: getCurrentLocale() == 'en'
+              ? (isRight ? 0 : 12)
+              : (isRight ? 12 : 0),
+          right: getCurrentLocale() == 'en'
+              ? (isRight ? 12 : 0)
+              : (isRight ? 0 : 12),
         ),
         height: 2,
         decoration: BoxDecoration(

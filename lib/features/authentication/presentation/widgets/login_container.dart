@@ -5,6 +5,7 @@ import 'package:medihome/features/authentication/presentation/widgets/custom_but
 import 'package:medihome/features/authentication/presentation/widgets/email_text_form_field.dart';
 import 'package:medihome/features/authentication/presentation/widgets/password_text_form_field.dart';
 import 'package:medihome/features/authentication/presentation/widgets/tall_bar.dart';
+import 'package:medihome/generated/l10n.dart';
 import 'package:shimmer/shimmer.dart';
 
 class LoginContainer extends StatefulWidget {
@@ -66,7 +67,7 @@ class _LoginContainerState extends State<LoginContainer> {
               highlightColor: Colors.blue,
               period: Duration(seconds: 5),
               child: Text(
-                "Login",
+                S.of(context).login,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 40,
@@ -75,7 +76,7 @@ class _LoginContainerState extends State<LoginContainer> {
               ),
             ),
             Text(
-              "Enter your email and password to log in",
+              S.of(context).enterYourEmailAndPasswordToLogIn,
               style: TextStyle(color: Colors.grey, fontSize: 16),
             ),
             SizedBox(height: 24),
@@ -93,14 +94,14 @@ class _LoginContainerState extends State<LoginContainer> {
               children: [
                 Checkbox(value: false, onChanged: (value) {}),
                 Text(
-                  "Remember me",
+                  S.of(context).rememberMe,
                   style: TextStyle(color: Colors.white70, fontSize: 16),
                 ),
                 Spacer(),
                 TextButton(
                   onPressed: () {},
                   child: Text(
-                    "Forgot Password?",
+                    S.of(context).forgotPassword,
                     style: TextStyle(color: Colors.blue),
                   ),
                 ),
@@ -111,7 +112,7 @@ class _LoginContainerState extends State<LoginContainer> {
               children: [
                 Expanded(
                   child: CustomButton(
-                    buttonText: "Login",
+                    buttonText: S.of(context).login,
                     onPressed: loginOnPressed,
                     color: Colors.blue,
                   ),
@@ -122,7 +123,10 @@ class _LoginContainerState extends State<LoginContainer> {
             Row(
               children: [
                 Expanded(child: TallBar(isRight: true)),
-                Text("OR", style: TextStyle(color: Colors.white, fontSize: 20)),
+                Text(
+                  S.of(context).or,
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
                 Expanded(child: TallBar(isRight: false)),
               ],
             ),
@@ -133,7 +137,7 @@ class _LoginContainerState extends State<LoginContainer> {
               children: [
                 Expanded(
                   child: CustomButton(
-                    buttonText: "Login with Gmail",
+                    buttonText: S.of(context).loginWithGmail,
                     onPressed: () {},
                     color: Colors.red,
                   ),
@@ -148,7 +152,7 @@ class _LoginContainerState extends State<LoginContainer> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Don’t have an account?",
+                    S.of(context).dontHaveAccount,
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                   TextButton(
@@ -158,7 +162,7 @@ class _LoginContainerState extends State<LoginContainer> {
                       GoRouter.of(context).push(AppRouter.kRegister);
                     },
                     child: Text(
-                      "Sign Up",
+                      S.of(context).register,
                       style: TextStyle(color: Colors.blue, fontSize: 20),
                     ),
                   ),

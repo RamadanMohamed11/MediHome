@@ -8,6 +8,7 @@ import 'package:medihome/features/authentication/presentation/widgets/email_text
 import 'package:medihome/features/authentication/presentation/widgets/name_text_field.dart';
 import 'package:medihome/features/authentication/presentation/widgets/password_text_form_field.dart';
 import 'package:medihome/features/authentication/presentation/widgets/tall_bar.dart';
+import 'package:medihome/generated/l10n.dart';
 import 'package:shimmer/shimmer.dart';
 
 class RegisterContainer extends StatefulWidget {
@@ -63,7 +64,7 @@ class _RegisterContainerState extends State<RegisterContainer> {
               highlightColor: Colors.blue,
               period: Duration(seconds: 5),
               child: Text(
-                "Register",
+                S.of(context).register,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 40,
@@ -72,7 +73,7 @@ class _RegisterContainerState extends State<RegisterContainer> {
               ),
             ),
             Text(
-              "Enter your name, email and password to register",
+              S.of(context).enterYourNameEmailAndPasswordToRegister,
               textAlign: TextAlign.center,
 
               style: TextStyle(color: Colors.grey, fontSize: 16),
@@ -98,7 +99,7 @@ class _RegisterContainerState extends State<RegisterContainer> {
               children: [
                 Expanded(
                   child: CustomButton(
-                    buttonText: "Register",
+                    buttonText: S.of(context).register,
                     onPressed: registerOnPressed,
                     color: Colors.blue,
                   ),
@@ -109,7 +110,10 @@ class _RegisterContainerState extends State<RegisterContainer> {
             Row(
               children: [
                 Expanded(child: TallBar(isRight: true)),
-                Text("OR", style: TextStyle(color: Colors.white, fontSize: 20)),
+                Text(
+                  S.of(context).or,
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
                 Expanded(child: TallBar(isRight: false)),
               ],
             ),
@@ -120,7 +124,7 @@ class _RegisterContainerState extends State<RegisterContainer> {
               children: [
                 Expanded(
                   child: CustomButton(
-                    buttonText: "Register with Gmail",
+                    buttonText: S.of(context).loginWithGmail,
                     onPressed: () {},
                     color: Colors.red,
                   ),
@@ -135,7 +139,7 @@ class _RegisterContainerState extends State<RegisterContainer> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Already have an account?",
+                    S.of(context).alreadyHaveAccount,
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                   TextButton(
@@ -145,7 +149,7 @@ class _RegisterContainerState extends State<RegisterContainer> {
                       GoRouter.of(context).pop();
                     },
                     child: Text(
-                      "Login",
+                      S.of(context).login,
                       style: TextStyle(color: Colors.blue, fontSize: 20),
                     ),
                   ),
