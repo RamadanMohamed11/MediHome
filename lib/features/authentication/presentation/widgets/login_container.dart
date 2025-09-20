@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medihome/core/utils/app_router.dart';
+import 'package:medihome/features/authentication/presentation/view_models/cubit/authentication_cubit.dart';
 import 'package:medihome/features/authentication/presentation/widgets/custom_button.dart';
 import 'package:medihome/features/authentication/presentation/widgets/custom_text_widget.dart';
 import 'package:medihome/features/authentication/presentation/widgets/email_text_form_field.dart';
@@ -45,8 +47,11 @@ class _LoginContainerState extends State<LoginContainer> {
 
   void loginOnPressed() {
     if (formKey.currentState!.validate()) {
-      GoRouter.of(context).push(AppRouter.kHome);
+      BlocProvider.of<AuthenticationCubit>(
+        context,
+      ).signIn(email: emailController.text, password: passwordController.text);
     }
+    GoRouter.of(context).push(AppRouter.kHome);
   }
 
   @override

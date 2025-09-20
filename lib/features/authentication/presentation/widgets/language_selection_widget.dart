@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medihome/core/cubits/localization/localization_cubit.dart';
+import 'package:medihome/core/helper/get_locale_from_hive.dart';
 
 class LanguageSelectionWidget extends StatelessWidget {
   const LanguageSelectionWidget({super.key});
@@ -19,11 +20,11 @@ class LanguageSelectionWidget extends StatelessWidget {
               child: Text(
                 'English',
                 style: TextStyle(
-                  color: state.locale.languageCode == 'en'
+                  color: getLocaleFromHive().languageCode == 'en'
                       ? Colors.blue
                       : Colors.grey,
                   fontSize: 20,
-                  fontWeight: state.locale.languageCode == 'en'
+                  fontWeight: getLocaleFromHive().languageCode == 'en'
                       ? FontWeight.bold
                       : FontWeight.normal,
                 ),
@@ -36,11 +37,11 @@ class LanguageSelectionWidget extends StatelessWidget {
               child: Text(
                 'العربية',
                 style: TextStyle(
-                  color: state.locale.languageCode == 'ar'
+                  color: getLocaleFromHive().languageCode == 'ar'
                       ? Colors.blue
                       : Colors.grey,
                   fontSize: 20,
-                  fontWeight: state.locale.languageCode == 'ar'
+                  fontWeight: getLocaleFromHive().languageCode == 'ar'
                       ? FontWeight.bold
                       : FontWeight.normal,
                 ),

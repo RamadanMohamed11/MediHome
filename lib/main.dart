@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:medihome/core/cubits/localization/localization_cubit.dart';
+import 'package:medihome/core/helper/get_locale_from_hive.dart';
 import 'package:medihome/core/utils/app_router.dart';
 import 'package:medihome/core/utils/authentication_service.dart';
 import 'package:medihome/core/utils/service_locator.dart';
@@ -13,6 +16,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  await Hive.initFlutter();
+  await Hive.openBox('locale');
+
   setupServiceLocator();
   runApp(const MediHome());
 }
@@ -38,7 +45,7 @@ class MediHome extends StatelessWidget {
       child: BlocBuilder<LocalizationCubit, LocalizationState>(
         builder: (context, state) {
           return MaterialApp.router(
-            locale: state.locale,
+            locale: getLocaleFromHive(),
             localizationsDelegates: const [
               S.delegate,
               GlobalMaterialLocalizations.delegate,
