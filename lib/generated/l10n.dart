@@ -329,6 +329,16 @@ class S {
     );
   }
 
+  /// `Add Medication`
+  String get addMedication {
+    return Intl.message(
+      'Add Medication',
+      name: 'addMedication',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Enter your email to reset your password`
   String get enterYourEmailToResetYourPassword {
     return Intl.message(

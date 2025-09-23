@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:medihome/core/utils/app_router.dart';
 import 'package:medihome/features/authentication/presentation/view_models/cubit/authentication_cubit.dart';
 import 'package:medihome/features/authentication/presentation/widgets/custom_button.dart';
 import 'package:medihome/features/authentication/presentation/widgets/custom_text_widget.dart';
@@ -33,16 +34,20 @@ class _RegisterContainerState extends State<RegisterContainer> {
 
   @override
   Widget build(BuildContext context) {
-    void registerOnPressed() {
+    Future<void> registerOnPressed() async {
       if (formKey.currentState!.validate()) {
         formKey.currentState!.save();
 
-        BlocProvider.of<AuthenticationCubit>(context).signUp(
+        await BlocProvider.of<AuthenticationCubit>(context).signUp(
           email: emailController.text,
           password: passwordController.text,
           name: nameController.text,
           context: context,
         );
+
+        if (mounted) {
+          GoRouter.of(context).pop();
+        }
       }
     }
 

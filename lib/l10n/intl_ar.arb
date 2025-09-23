@@ -43,5 +43,6 @@
     "checkout": "الدفع",
     "signout": "تسجيل الخروج",
     "checkoutSuccess": "تم التسجيل بنجاح",
-    "enterYourEmailToResetYourPassword": "أدخل البريد الإلكتروني لاستعادة كلمة المرور"
+    "enterYourEmailToResetYourPassword": "أدخل البريد الإلكتروني لاستعادة كلمة المرور",
+    "addMedication": "إضافة دواء"
 }

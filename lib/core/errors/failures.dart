@@ -6,23 +6,35 @@ abstract class Failure {
 }
 
 // Firebase Failure
-class FirebaseFailure extends Failure {
-  FirebaseFailure(super.errorMessage);
+class AuthFailure extends Failure {
+  AuthFailure(super.errorMessage);
 
-  factory FirebaseFailure.fromFirebaseAuthException(FirebaseAuthException e) {
+  factory AuthFailure.fromFirebaseAuthException(FirebaseAuthException e) {
     switch (e.code) {
-      case 'user-not-found':
-        return FirebaseFailure('No user found for that email.');
-      case 'wrong-password':
-        return FirebaseFailure('Wrong password provided for that user.');
-      case 'email-already-in-use':
-        return FirebaseFailure('The account already exists for that email.');
-      case 'weak-password':
-        return FirebaseFailure('The password provided is too weak.');
       case 'invalid-email':
-        return FirebaseFailure('The email address is not valid.');
+        return AuthFailure("The email address is not valid.");
+      case 'user-disabled':
+        return AuthFailure("This user account has been disabled.");
+      case 'user-not-found':
+        return AuthFailure("No user found for this email.");
+      case 'wrong-password':
+        return AuthFailure("Wrong password.");
+      case 'email-already-in-use':
+        return AuthFailure("This email is already in use.");
+      case 'weak-password':
+        return AuthFailure("Password is too weak.");
+      case 'operation-not-allowed':
+        return AuthFailure("This sign-in method is not allowed.");
       default:
-        return FirebaseFailure(e.code);
+        return AuthFailure("Unexpected error: ${e.message}");
+    }
+  }
+
+  factory AuthFailure.fromException(Exception e) {
+    if (e is FirebaseAuthException) {
+      return AuthFailure.fromFirebaseAuthException(e);
+    } else {
+      return AuthFailure("Unexpected error: $e");
     }
   }
 }

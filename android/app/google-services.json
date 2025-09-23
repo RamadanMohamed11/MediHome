@@ -12,7 +12,20 @@
           "package_name": "com.example.medihome"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "320834603461-3nf7puffkg2tj7d2pacrh8p1ftj5mqq1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medihome",
+            "certificate_hash": "366d85d36f59d3e87a2988648fe6946a1f649047"
+          }
+        },
+        {
+          "client_id": "320834603461-51phhq60u6lnf820qauiriobus3d9bpm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBYI60cfg0et4aNf7oUM0R9RoKyln7JAtE"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "320834603461-51phhq60u6lnf820qauiriobus3d9bpm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "320834603461-3udm36tb0gciasr27kri6h3npt3mgv0g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.medihome"
+              }
+            }
+          ]
         }
       }
     }

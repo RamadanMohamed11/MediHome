@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class MedicineModel {
@@ -6,6 +8,11 @@ class MedicineModel {
   final String status;
   final String userId;
   final String createdAt;
+  final Color color;
+  final List<Map<String, bool>> accountsToAccess;
+  final num currentStock;
+  final num pillsPerDose;
+  final List<Map<String, String>> doseWithTime;
 
   MedicineModel({
     required this.id,
@@ -13,6 +20,11 @@ class MedicineModel {
     required this.status,
     required this.userId,
     required this.createdAt,
+    required this.color,
+    required this.accountsToAccess,
+    required this.currentStock,
+    required this.pillsPerDose,
+    required this.doseWithTime,
   });
 
   factory MedicineModel.fromSnap(DocumentSnapshot snap) {
@@ -23,6 +35,11 @@ class MedicineModel {
       status: data['status'],
       userId: data['userId'],
       createdAt: data['createdAt'],
+      color: data['color'],
+      accountsToAccess: data['accountsToAccess'],
+      currentStock: data['currentStock'],
+      pillsPerDose: data['pillsPerDose'],
+      doseWithTime: data['doseWithTime'],
     );
   }
 
@@ -32,5 +49,10 @@ class MedicineModel {
     'status': status,
     'userId': userId,
     'createdAt': createdAt,
+    'color': color.value,
+    'accountsToAccess': accountsToAccess,
+    'currentStock': currentStock,
+    'pillsPerDose': pillsPerDose,
+    'doseWithTime': doseWithTime,
   };
 }

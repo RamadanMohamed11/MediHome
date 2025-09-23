@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medihome/core/utils/app_router.dart';
+import 'package:medihome/features/authentication/data/models/user_model.dart';
 import 'package:medihome/features/authentication/presentation/view_models/cubit/authentication_cubit.dart';
 import 'package:medihome/features/authentication/presentation/widgets/custom_button.dart';
 import 'package:medihome/features/authentication/presentation/widgets/custom_text_widget.dart';
@@ -46,12 +47,22 @@ class _LoginContainerState extends State<LoginContainer> {
   }
 
   void loginOnPressed() {
+    if (!mounted) return;
+
     if (formKey.currentState!.validate()) {
-      BlocProvider.of<AuthenticationCubit>(
-        context,
-      ).signIn(email: emailController.text, password: passwordController.text);
+      final router = GoRouter.of(context);
+      BlocProvider.of<AuthenticationCubit>(context)
+          .signIn(
+            email: emailController.text,
+            password: passwordController.text,
+          )
+          .then((value) {
+            if (value != null) {
+              // Using Navigator.of(context, rootNavigator: true) to ensure we're using the root navigator
+              router.push(AppRouter.kHome, extra: value);
+            }
+          });
     }
-    GoRouter.of(context).push(AppRouter.kHome);
   }
 
   @override
@@ -137,7 +148,21 @@ class _LoginContainerState extends State<LoginContainer> {
                 Expanded(
                   child: CustomButton(
                     buttonText: S.of(context).loginWithGmail,
-                    onPressed: () {},
+                    onPressed: () async {
+                      if (!mounted) return;
+
+                      final userModel =
+                          await BlocProvider.of<AuthenticationCubit>(
+                            context,
+                          ).signInWithGoogle(context);
+
+                      if (userModel != null && mounted) {
+                        final router = GoRouter.of(context);
+                        if (mounted) {
+                          router.push(AppRouter.kHome, extra: userModel);
+                        }
+                      }
+                    },
                     color: Colors.red,
                   ),
                 ),

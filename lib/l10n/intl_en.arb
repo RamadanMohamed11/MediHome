@@ -39,5 +39,6 @@
     "total": "Total",
     "checkout": "Checkout",
     "checkoutSuccess": "Checkout Success",
+    "addMedication": "Add Medication",
     "enterYourEmailToResetYourPassword": "Enter your email to reset your password"
 }
