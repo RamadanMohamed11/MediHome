@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medihome/core/helper/show_dialog.dart';
 import 'package:medihome/core/widgets/loading_widget.dart';
 import 'package:medihome/features/authentication/presentation/view_models/cubit/authentication_cubit.dart';
-import 'package:medihome/features/authentication/presentation/widgets/login_container.dart';
+import 'package:medihome/features/authentication/presentation/views/widgets/login_container.dart';
 import 'package:medihome/core/widgets/medi_home_with_icon_widget.dart';
-import 'package:medihome/features/authentication/presentation/widgets/top_image.dart';
+import 'package:medihome/features/authentication/presentation/views/widgets/top_image.dart';
 import 'package:medihome/generated/l10n.dart';
 
 class LoginViewBody extends StatelessWidget {

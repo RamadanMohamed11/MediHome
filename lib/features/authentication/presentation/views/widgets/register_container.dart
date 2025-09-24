@@ -3,12 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medihome/core/utils/app_router.dart';
 import 'package:medihome/features/authentication/presentation/view_models/cubit/authentication_cubit.dart';
-import 'package:medihome/features/authentication/presentation/widgets/custom_button.dart';
-import 'package:medihome/features/authentication/presentation/widgets/custom_text_widget.dart';
-import 'package:medihome/features/authentication/presentation/widgets/email_text_form_field.dart';
-import 'package:medihome/features/authentication/presentation/widgets/name_text_field.dart';
-import 'package:medihome/features/authentication/presentation/widgets/password_text_form_field.dart';
-import 'package:medihome/features/authentication/presentation/widgets/tall_bar.dart';
+import 'package:medihome/features/authentication/presentation/views/widgets/custom_button.dart';
+import 'package:medihome/features/authentication/presentation/views/widgets/custom_text_widget.dart';
+import 'package:medihome/features/authentication/presentation/views/widgets/email_text_form_field.dart';
+import 'package:medihome/features/authentication/presentation/views/widgets/name_text_field.dart';
+import 'package:medihome/features/authentication/presentation/views/widgets/password_text_form_field.dart';
+import 'package:medihome/features/authentication/presentation/views/widgets/tall_bar.dart';
 import 'package:medihome/generated/l10n.dart';
 
 class RegisterContainer extends StatefulWidget {
