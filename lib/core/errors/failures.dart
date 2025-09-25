@@ -17,8 +17,8 @@ class AuthFailure extends Failure {
         return AuthFailure("This user account has been disabled.");
       case 'user-not-found':
         return AuthFailure("No user found for this email.");
-      case 'wrong-password':
-        return AuthFailure("Wrong password.");
+      case 'invalid-credential':
+        return AuthFailure("The email address is not valid or wrong password.");
       case 'email-already-in-use':
         return AuthFailure("This email is already in use.");
       case 'weak-password':
@@ -26,7 +26,7 @@ class AuthFailure extends Failure {
       case 'operation-not-allowed':
         return AuthFailure("This sign-in method is not allowed.");
       default:
-        return AuthFailure("Unexpected error: ${e.message}");
+        return AuthFailure("${e.message}");
     }
   }
 

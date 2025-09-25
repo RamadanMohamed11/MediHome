@@ -59,7 +59,7 @@ class _LoginContainerState extends State<LoginContainer> {
           .then((value) {
             if (value != null) {
               // Using Navigator.of(context, rootNavigator: true) to ensure we're using the root navigator
-              router.push(AppRouter.kHome, extra: value);
+              router.pushReplacement(AppRouter.kHome, extra: value);
             }
           });
     }

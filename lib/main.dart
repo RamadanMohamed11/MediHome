@@ -7,19 +7,20 @@ import 'package:medihome/core/utils/app_router.dart';
 import 'package:medihome/core/utils/authentication_service.dart';
 import 'package:medihome/core/utils/service_locator.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:medihome/features/authentication/data/repos/auth_repo.dart';
 import 'package:medihome/features/authentication/presentation/view_models/cubit/authentication_cubit.dart';
 import 'package:medihome/generated/l10n.dart';
 import 'firebase_options.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
+  setupServiceLocator();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   await Hive.initFlutter();
   await Hive.openBox('locale');
 
-  setupServiceLocator();
   runApp(const MediHome());
 }
 
@@ -34,7 +35,8 @@ class MediHome extends StatelessWidget {
       providers: [
         BlocProvider<AuthenticationCubit>(
           create: (context) => AuthenticationCubit(
-            authenticationService: AuthenticationService(),
+            authRepo: getIt.get<AuthRepo>(),
+            authenticationService: getIt.get<AuthenticationService>(),
           ),
         ),
         BlocProvider<LocalizationCubit>(

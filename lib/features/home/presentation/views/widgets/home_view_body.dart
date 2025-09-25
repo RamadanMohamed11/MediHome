@@ -20,7 +20,7 @@ class HomeViewBody extends StatelessWidget {
               itemCount: 10,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
+                  padding: const EdgeInsets.all(10),
                   child: MedicationWidget(),
                 );
               },

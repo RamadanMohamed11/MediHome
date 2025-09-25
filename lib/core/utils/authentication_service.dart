@@ -29,37 +29,26 @@ class AuthenticationService {
     required String password,
     required String name,
   }) async {
-    try {
-      UserCredential userCredential = await _firebaseAuth
-          .createUserWithEmailAndPassword(email: email, password: password);
-      storeUser(userCredential, name, email);
-    } catch (e) {
-      print("Error signing up: $e");
-    }
+    UserCredential userCredential = await _firebaseAuth
+        .createUserWithEmailAndPassword(email: email, password: password);
+    storeUser(userCredential, name, email);
   }
 
-  Future<Either<AuthFailure, UserModel?>> signIn({
+  Future<UserModel?> signIn({
     required String email,
     required String password,
   }) async {
-    try {
-      await _firebaseAuth.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      final userDoc = await _usersCollection
-          .doc(_firebaseAuth.currentUser!.uid)
-          .get();
-      if (userDoc.exists) {
-        return Right(UserModel.fromSnap(userDoc));
-      }
-    } on FirebaseAuthException catch (e) {
-      return Left(AuthFailure.fromException(e));
-    } on Exception catch (e) {
-      print("Error signing in: $e");
-      return Left(AuthFailure.fromException(e));
+    await _firebaseAuth.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+    final userDoc = await _usersCollection
+        .doc(_firebaseAuth.currentUser!.uid)
+        .get();
+    if (userDoc.exists) {
+      return UserModel.fromSnap(userDoc);
     }
-    return Right(null);
+    return null;
   }
 
   // Sign out
