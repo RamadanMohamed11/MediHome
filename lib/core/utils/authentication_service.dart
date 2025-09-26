@@ -1,10 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:medihome/core/errors/failures.dart';
 import 'package:medihome/core/utils/app_router.dart';
 import 'package:medihome/features/authentication/data/models/user_model.dart';
 
