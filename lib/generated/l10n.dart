@@ -339,6 +339,36 @@ class S {
     );
   }
 
+  /// `Current Stock`
+  String get currentStock {
+    return Intl.message(
+      'Current Stock',
+      name: 'currentStock',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pills per Dose`
+  String get pillsPerDose {
+    return Intl.message(
+      'Pills per Dose',
+      name: 'pillsPerDose',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Medicine Name`
+  String get medicineName {
+    return Intl.message(
+      'Medicine Name',
+      name: 'medicineName',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Enter your email to reset your password`
   String get enterYourEmailToResetYourPassword {
     return Intl.message(

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medihome/core/utils/app_router.dart';
 import 'package:medihome/features/authentication/presentation/view_models/cubit/authentication_cubit.dart';
-import 'package:medihome/features/authentication/presentation/views/widgets/custom_button.dart';
+import 'package:medihome/core/widgets/custom_button.dart';
 import 'package:medihome/features/authentication/presentation/views/widgets/custom_text_widget.dart';
 import 'package:medihome/features/authentication/presentation/views/widgets/email_text_form_field.dart';
 import 'package:medihome/features/authentication/presentation/views/widgets/password_text_form_field.dart';

@@ -42,7 +42,11 @@
     "total": "الإجمالي",
     "checkout": "الدفع",
     "signout": "تسجيل الخروج",
+    "medicineName": "اسم الدواء",
+    "currentStock": "المخزون الحالي",
+    "pillsPerDose": "أقراص لكل جرعة",
     "checkoutSuccess": "تم التسجيل بنجاح",
     "enterYourEmailToResetYourPassword": "أدخل البريد الإلكتروني لاستعادة كلمة المرور",
     "addMedication": "إضافة دواء"
+    
 }

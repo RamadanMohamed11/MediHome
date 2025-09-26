@@ -8,12 +8,12 @@ import 'package:medihome/features/home/presentation/views/home_view.dart';
 import 'package:medihome/features/splash/presentation/views/splash_view.dart';
 
 abstract class AppRouter {
-  static const String kSplash = '/';
+  static const String kSplash = '/spalsh';
   static const String kLogin = '/login';
   static const String kRegister = '/register';
   static const String kHome = '/home';
   static const String kForgetPassword = '/forget-password';
-  static const String kAddMedication = '/add-medication';
+  static const String kAddMedication = '/';
 
   static final GoRouter routes = GoRouter(
     initialLocation: kSplash,

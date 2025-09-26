@@ -10,17 +10,18 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
-          SizedBox(height: 40),
+          SizedBox(height: 30),
           MediHomeWithIconWidget(),
           Expanded(
             child: ListView.builder(
+              padding: EdgeInsets.only(top: 5),
               itemCount: 10,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.symmetric(vertical: 10),
                   child: MedicationWidget(),
                 );
               },

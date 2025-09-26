@@ -1,4 +1,15 @@
 abstract class TextFormFiledValidations {
+  static String? numberValidation(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your number';
+    }
+    // if value is negative
+    if (int.parse(value) < 0) {
+      return 'Please enter a valid number';
+    }
+    return null;
+  }
+
   static String? emailValidation(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter your email';
