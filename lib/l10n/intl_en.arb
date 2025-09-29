@@ -41,6 +41,7 @@
     "checkoutSuccess": "Checkout Success",
     "addMedication": "Add Medication",
     "currentStock": "Current Stock",
+    "share":"Share",
     "pillsPerDose": "Pills per Dose",
     "medicineName": "Medicine Name",
     "enterYourEmailToResetYourPassword": "Enter your email to reset your password"

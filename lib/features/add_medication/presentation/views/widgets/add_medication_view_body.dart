@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:medihome/core/utils/app_router.dart';
 import 'package:medihome/core/widgets/custom_button.dart';
 import 'package:medihome/features/add_medication/presentation/views/widgets/dose_numbers_text_form_field.dart';
 import 'package:medihome/features/add_medication/presentation/views/widgets/medication_name_text_form_field.dart';
@@ -77,11 +79,37 @@ class _AddMedicationViewBodyState extends State<AddMedicationViewBody> {
                   ),
                 ],
               ),
+
               SizedBox(height: 20),
-              CustomButton(
-                buttonText: S.of(context).addMedication,
-                onPressed: () {},
-                color: Colors.blue,
+              Row(
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: CustomButton(
+                      buttonText: S.of(context).addMedication,
+                      onPressed: () {},
+                      color: Colors.blue,
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Expanded(
+                    child: TextButton(
+                      child: Text(
+                        S.of(context).share,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {
+                          formKey.currentState!.save();
+                        }
+                        GoRouter.of(context).push(AppRouter.kShareEmails);
+                      },
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

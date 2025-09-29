@@ -349,6 +349,11 @@ class S {
     );
   }
 
+  /// `Share`
+  String get share {
+    return Intl.message('Share', name: 'share', desc: '', args: []);
+  }
+
   /// `Pills per Dose`
   String get pillsPerDose {
     return Intl.message(

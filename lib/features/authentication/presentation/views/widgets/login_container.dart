@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medihome/core/utils/app_router.dart';
 import 'package:medihome/features/authentication/presentation/view_models/cubit/authentication_cubit.dart';
@@ -22,12 +23,29 @@ class _LoginContainerState extends State<LoginContainer> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   late TextEditingController emailController;
   late TextEditingController passwordController;
+  bool _rememberMe = false;
 
   @override
   void initState() {
+    super.initState();
     emailController = TextEditingController();
     passwordController = TextEditingController();
-    super.initState();
+    _loadUserPreferences();
+  }
+
+  void _loadUserPreferences() async {
+    final prefs = await SharedPreferences.getInstance();
+    final email = prefs.getString('email');
+    final password = prefs.getString('password');
+    final rememberMe = prefs.getBool('rememberMe') ?? false;
+
+    if (rememberMe && email != null && password != null) {
+      setState(() {
+        emailController.text = email;
+        passwordController.text = password;
+        _rememberMe = rememberMe;
+      });
+    }
   }
 
   @override
@@ -45,22 +63,35 @@ class _LoginContainerState extends State<LoginContainer> {
     passwordController.text = value ?? '';
   }
 
-  void loginOnPressed() {
+  void loginOnPressed() async {
     if (!mounted) return;
 
     if (formKey.currentState!.validate()) {
+      _handleRememberMe();
       final router = GoRouter.of(context);
-      BlocProvider.of<AuthenticationCubit>(context)
+      await BlocProvider.of<AuthenticationCubit>(context)
           .signIn(
             email: emailController.text,
             password: passwordController.text,
           )
           .then((value) {
             if (value != null) {
-              // Using Navigator.of(context, rootNavigator: true) to ensure we're using the root navigator
               router.pushReplacement(AppRouter.kHome, extra: value);
             }
           });
+    }
+  }
+
+  void _handleRememberMe() async {
+    final prefs = await SharedPreferences.getInstance();
+    if (_rememberMe) {
+      await prefs.setString('email', emailController.text);
+      await prefs.setString('password', passwordController.text);
+      await prefs.setBool('rememberMe', true);
+    } else {
+      await prefs.remove('email');
+      await prefs.remove('password');
+      await prefs.setBool('rememberMe', false);
     }
   }
 
@@ -96,7 +127,16 @@ class _LoginContainerState extends State<LoginContainer> {
             SizedBox(height: 24),
             Row(
               children: [
-                Checkbox(value: false, onChanged: (value) {}),
+                Checkbox(
+                  value: _rememberMe,
+                  onChanged: (value) {
+                    setState(() {
+                      _rememberMe = value ?? false;
+                    });
+                  },
+                  checkColor: Colors.white,
+                  activeColor: Colors.blue,
+                ),
                 Text(
                   S.of(context).rememberMe,
                   style: TextStyle(color: Colors.white70, fontSize: 16),

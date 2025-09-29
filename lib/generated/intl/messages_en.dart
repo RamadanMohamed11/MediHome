@@ -78,6 +78,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+    "share": MessageLookupByLibrary.simpleMessage("Share"),
     "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
     "signout": MessageLookupByLibrary.simpleMessage("Sign Out"),
     "success": MessageLookupByLibrary.simpleMessage("Success"),

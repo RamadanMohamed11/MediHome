@@ -82,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
     "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+    "share": MessageLookupByLibrary.simpleMessage("مشاركة"),
     "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "signout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "success": MessageLookupByLibrary.simpleMessage("نجاح"),
