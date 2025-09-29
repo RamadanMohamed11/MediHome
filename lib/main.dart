@@ -12,10 +12,12 @@ import 'package:medihome/features/authentication/presentation/view_models/cubit/
 import 'package:medihome/generated/l10n.dart';
 import 'firebase_options.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:medihome/core/utils/local_notifications_service.dart';
 
 void main() async {
-  setupServiceLocator();
   WidgetsFlutterBinding.ensureInitialized();
+  LocalNotificationsService.initNotifications();
+  setupServiceLocator();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   await Hive.initFlutter();
