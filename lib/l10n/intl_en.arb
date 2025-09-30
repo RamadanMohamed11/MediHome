@@ -41,8 +41,11 @@
     "checkoutSuccess": "Checkout Success",
     "addMedication": "Add Medication",
     "currentStock": "Current Stock",
+    "selectTheColor":"Select the color",
+    "selectDateRange":"Select Date Range",
     "share":"Share",
     "pillsPerDose": "Pills per Dose",
     "medicineName": "Medicine Name",
-    "enterYourEmailToResetYourPassword": "Enter your email to reset your password"
+    "enterYourEmailToResetYourPassword": "Enter your email to reset your password",
+    "selectDateAndTime": "Select Date and Time"
 }

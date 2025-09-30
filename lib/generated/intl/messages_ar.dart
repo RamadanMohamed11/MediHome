@@ -80,6 +80,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetPassword": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمة المرور",
     ),
+    "selectDateAndTime": MessageLookupByLibrary.simpleMessage(
+      "اختر التاريخ والوقت",
+    ),
+    "selectDateRange": MessageLookupByLibrary.simpleMessage(
+      "اختر نطاق التاريخ",
+    ),
+    "selectTheColor": MessageLookupByLibrary.simpleMessage("اختر اللون"),
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
     "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "share": MessageLookupByLibrary.simpleMessage("مشاركة"),

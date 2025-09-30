@@ -22,13 +22,17 @@ class EmailTextFormField extends StatelessWidget {
       keyboardType: TextInputType.emailAddress,
       style: TextStyle(color: Colors.white),
       decoration: InputDecoration(
-        hint: FittedBox(
-          fit: BoxFit.scaleDown,
-          child: Text(
-            hintText ?? S.of(context).enterYourEmail,
-            style: TextStyle(color: Colors.white60),
-          ),
-        ),
+        hint: hintText == null
+            ? Text(
+                hintText ?? S.of(context).enterYourEmail,
+                style: TextStyle(color: Colors.white60),
+              )
+            : FittedBox(
+                child: Text(
+                  hintText ?? S.of(context).enterYourEmail,
+                  style: TextStyle(color: Colors.white60),
+                ),
+              ),
         prefixIcon: Icon(Icons.email_outlined, color: Colors.white70),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
       ),

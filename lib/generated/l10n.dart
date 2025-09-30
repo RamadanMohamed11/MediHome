@@ -349,6 +349,26 @@ class S {
     );
   }
 
+  /// `Select the color`
+  String get selectTheColor {
+    return Intl.message(
+      'Select the color',
+      name: 'selectTheColor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Date Range`
+  String get selectDateRange {
+    return Intl.message(
+      'Select Date Range',
+      name: 'selectDateRange',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Share`
   String get share {
     return Intl.message('Share', name: 'share', desc: '', args: []);
@@ -379,6 +399,16 @@ class S {
     return Intl.message(
       'Enter your email to reset your password',
       name: 'enterYourEmailToResetYourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Date and Time`
+  String get selectDateAndTime {
+    return Intl.message(
+      'Select Date and Time',
+      name: 'selectDateAndTime',
       desc: '',
       args: [],
     );

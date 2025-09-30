@@ -8,7 +8,7 @@ class MedicationWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(left: 15),
       decoration: BoxDecoration(
-        color: Colors.blue,
+        color: Colors.red,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Container(
@@ -30,7 +30,7 @@ class MedicationWidget extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.blue,
+                color: Colors.red,
               ),
               child: Icon(Icons.medication, size: 50, color: Colors.white),
             ),
@@ -40,7 +40,7 @@ class MedicationWidget extends StatelessWidget {
               children: [
                 Text(
                   'Medication Name',
-                  style: TextStyle(fontSize: 20, color: Colors.blue),
+                  style: TextStyle(fontSize: 20, color: Colors.red),
                 ),
                 Row(
                   children: [

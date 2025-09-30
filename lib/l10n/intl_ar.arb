@@ -42,12 +42,14 @@
     "total": "الإجمالي",
     "checkout": "الدفع",
     "signout": "تسجيل الخروج",
+    "selectTheColor":"اختر اللون",
     "medicineName": "اسم الدواء",
     "currentStock": "المخزون الحالي",
+    "selectDateRange": "اختر نطاق التاريخ",
     "pillsPerDose": "أقراص لكل جرعة",
     "checkoutSuccess": "تم التسجيل بنجاح",
     "share":"مشاركة",
     "enterYourEmailToResetYourPassword": "أدخل البريد الإلكتروني لاستعادة كلمة المرور",
-    "addMedication": "إضافة دواء"
-    
+    "addMedication": "إضافة دواء",
+    "selectDateAndTime": "اختر التاريخ والوقت"
 }

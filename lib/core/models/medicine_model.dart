@@ -13,6 +13,8 @@ class MedicineModel {
   final num currentStock;
   final num pillsPerDose;
   final List<Map<String, String>> doseWithTime;
+  final String startDate;
+  final String endDate;
 
   MedicineModel({
     required this.id,
@@ -25,6 +27,8 @@ class MedicineModel {
     required this.currentStock,
     required this.pillsPerDose,
     required this.doseWithTime,
+    required this.startDate,
+    required this.endDate,
   });
 
   factory MedicineModel.fromSnap(DocumentSnapshot snap) {
@@ -40,6 +44,8 @@ class MedicineModel {
       currentStock: data['currentStock'],
       pillsPerDose: data['pillsPerDose'],
       doseWithTime: data['doseWithTime'],
+      startDate: data['startDate'],
+      endDate: data['endDate'],
     );
   }
 
@@ -54,5 +60,7 @@ class MedicineModel {
     'currentStock': currentStock,
     'pillsPerDose': pillsPerDose,
     'doseWithTime': doseWithTime,
+    'startDate': startDate,
+    'endDate': endDate,
   };
 }

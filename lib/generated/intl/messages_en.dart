@@ -76,6 +76,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "registerNow": MessageLookupByLibrary.simpleMessage("Register Now"),
     "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
     "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
+    "selectDateAndTime": MessageLookupByLibrary.simpleMessage(
+      "Select Date and Time",
+    ),
+    "selectDateRange": MessageLookupByLibrary.simpleMessage(
+      "Select Date Range",
+    ),
+    "selectTheColor": MessageLookupByLibrary.simpleMessage("Select the color"),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "share": MessageLookupByLibrary.simpleMessage("Share"),
